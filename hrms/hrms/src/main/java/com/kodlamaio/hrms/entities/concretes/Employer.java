@@ -5,9 +5,26 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 @Entity
 @Table(name="Employer")
 public class Employer {
+
+	public Employer() {}
+	
+	public Employer(int userId, String companyName, String website, String phoneNumber) {
+		super();
+		this.userId = userId;
+		this.companyName = companyName;
+		this.website = website;
+		this.phoneNumber = phoneNumber;
+	}
 
 	@Id
 	@Column(name="UserId")
@@ -21,38 +38,37 @@ public class Employer {
 	
 	@Column(name="PhoneNumber")
 	private String phoneNumber;
-	
-	public Employer() {}
-	
-	public Employer(int userId, String companyName, String website, String phoneNumber) {
-		super();
-		this.userId = userId;
-		this.companyName = companyName;
-		this.website = website;
-		this.phoneNumber = phoneNumber;
-	}
+
 	public int getUserId() {
 		return userId;
 	}
+
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
+
 	public String getCompanyName() {
 		return companyName;
 	}
+
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
 	}
+
 	public String getWebsite() {
 		return website;
 	}
+
 	public void setWebsite(String website) {
 		this.website = website;
 	}
+
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
+
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+	
 }

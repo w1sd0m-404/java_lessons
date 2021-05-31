@@ -5,19 +5,16 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 @Entity
 @Table(name="SystemUser")
 public class SystemUser {
-	
-	@Id
-	@Column(name="UserId")
-	private int userId;
-	
-	@Column(name="PositionId")
-	private int positionId;
-	
-	@Column(name="Position")
-	private String position;
 	
 	public SystemUser() {}
 	
@@ -27,22 +24,39 @@ public class SystemUser {
 		this.positionId = positionId;
 		this.position = position;
 	}
+
+	@Id
+	@Column(name="UserId")
+	private int userId;
+	
+	@Column(name="PositionId")
+	private int positionId;
+	
+	@Column(name="Position")
+	private String position;
+
 	public int getUserId() {
 		return userId;
 	}
+
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
+
 	public int getPositionId() {
 		return positionId;
 	}
+
 	public void setPositionId(int positionId) {
 		this.positionId = positionId;
 	}
+
 	public String getPosition() {
 		return position;
 	}
+
 	public void setPosition(String position) {
 		this.position = position;
 	}
+	
 }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kodlamaio.hrms.business.abstracts.SystemUserService;
+import com.kodlamaio.hrms.core.utilities.DataResult;
 import com.kodlamaio.hrms.entities.concretes.SystemUser;
 
 @RestController
@@ -22,8 +23,8 @@ public class SystemUserController {
 		this.systemUserService = systemUserService;
 	}
 	
-	@GetMapping("/get")
-	public List<SystemUser> get(){
+	@GetMapping("/getall")
+	public DataResult<List<SystemUser>> getAll(){
 		return systemUserService.getAll();
 	}
 }

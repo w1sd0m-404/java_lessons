@@ -7,9 +7,26 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name="Employee")
 public class Employee {
+
+	public Employee() {}
+	
+	public Employee(int userId, String firstName, String lastName, String nationalityId, Date birthOfDate) {
+		super();
+		this.userId = userId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.nationalityId = nationalityId;
+		this.birthOfDate = birthOfDate;
+	}
 
 	@Id
 	@Column(name="UserId")
@@ -26,45 +43,45 @@ public class Employee {
 	
 	@Column(name="BirthOfDate")
 	private Date birthOfDate;
-	
-	public Employee() {}
-	
-	public Employee(int userId, String firstName, String lastName, String nationalityId, Date birthOfDate) {
-		super();
-		this.userId = userId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.nationalityId = nationalityId;
-		this.birthOfDate = birthOfDate;
-	}
+
 	public int getUserId() {
 		return userId;
 	}
+
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
+
 	public String getFirstName() {
 		return firstName;
 	}
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
 	public String getLastName() {
 		return lastName;
 	}
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
 	public String getNationalityId() {
 		return nationalityId;
 	}
+
 	public void setNationalityId(String nationalityId) {
 		this.nationalityId = nationalityId;
 	}
+
 	public Date getBirthOfDate() {
 		return birthOfDate;
 	}
+
 	public void setBirthOfDate(Date birthOfDate) {
 		this.birthOfDate = birthOfDate;
 	}
+	
 }

@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.kodlamaio.hrms.business.abstracts.UserService;
+import com.kodlamaio.hrms.core.utilities.DataResult;
+import com.kodlamaio.hrms.core.utilities.SuccessDataResult;
 import com.kodlamaio.hrms.dataAccess.abstracts.UserDao;
 import com.kodlamaio.hrms.entities.concretes.User;
 
@@ -23,8 +25,8 @@ public class UserManager implements UserService{
 
 	@Override
 	@Transactional
-	public List<User> getAll() {
-		return this.userDao.findAll();
+	public DataResult<List<User>> getAll() {
+		return new SuccessDataResult<List<User>>(this.userDao.findAll(),"İşlem başarılı. Kullanıcılar listelendi.");
 	}
 
 }
