@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.kodlamaio.hrms.business.abstracts.BusinessPositionService;
 import com.kodlamaio.hrms.core.utilities.DataResult;
+import com.kodlamaio.hrms.core.utilities.Result;
 import com.kodlamaio.hrms.core.utilities.SuccessDataResult;
 import com.kodlamaio.hrms.dataAccess.abstracts.BusinessPositionDao;
 import com.kodlamaio.hrms.entities.concretes.BusinessPosition;
@@ -27,6 +28,11 @@ public class BusinessPositionManager implements BusinessPositionService {
 	@Transactional
 	public DataResult<List<BusinessPosition>> getAll() {
 		return new SuccessDataResult<List<BusinessPosition>>(this.businessPositionDao.findAll(),"İşlem başarılı. İş pozisyonları listelendi.");
+	}
+
+	@Override
+	public Result add(BusinessPosition businessPosition) {
+		return new SuccessDataResult<BusinessPosition>(this.businessPositionDao.save(businessPosition));
 	}
 
 }

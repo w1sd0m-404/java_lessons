@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.kodlamaio.hrms.business.abstracts.EmployerService;
 import com.kodlamaio.hrms.core.utilities.DataResult;
+import com.kodlamaio.hrms.core.utilities.Result;
 import com.kodlamaio.hrms.core.utilities.SuccessDataResult;
 import com.kodlamaio.hrms.dataAccess.abstracts.EmployerDao;
 import com.kodlamaio.hrms.entities.concretes.Employer;
@@ -27,6 +28,11 @@ public class EmployerManager implements EmployerService {
 	@Transactional
 	public DataResult<List<Employer>> getAll() {
 		return new SuccessDataResult<List<Employer>>(this.employerDao.findAll(),"İşlem başarılı. İş verenler listelendi.");
+	}
+
+	@Override
+	public Result add(Employer employer) {
+		return new SuccessDataResult<Employer>(this.employerDao.save(employer));
 	}
 
 }

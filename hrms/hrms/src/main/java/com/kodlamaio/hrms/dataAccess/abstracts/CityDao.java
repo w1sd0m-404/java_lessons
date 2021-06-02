@@ -1,13 +1,12 @@
 package com.kodlamaio.hrms.dataAccess.abstracts;
 
-
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.kodlamaio.hrms.entities.concretes.User;
+import com.kodlamaio.hrms.entities.concretes.City;
 
-public interface UserDao extends JpaRepository<User, Integer> {
+public interface CityDao extends JpaRepository<City, Integer>{
 
-	List<User> getAll();
+	List<City> getAll();
 }
